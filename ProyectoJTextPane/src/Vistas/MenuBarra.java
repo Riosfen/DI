@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JToolBar;
 
 /**
@@ -13,6 +15,7 @@ import javax.swing.JToolBar;
  */
 public class MenuBarra extends JToolBar{
     
-    
+    private JButton btn_salir;
+    private ImageIcon img_salir;
     
 }

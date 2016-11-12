@@ -11,8 +11,12 @@ import javax.swing.JTextPane;
  *
  * @author samo_
  */
-public class Vista extends JTextPane{
+public class Vista extends JTextPane {
     
+    public Vista(){
     
+        
+        
+    }
     
 }

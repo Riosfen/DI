@@ -5,7 +5,10 @@
  */
 package Vistas;
 
+import java.awt.event.KeyEvent;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -13,6 +16,22 @@ import javax.swing.JMenuBar;
  */
 public class Menu extends JMenuBar{
     
+    private JMenu archivo;
+    private JMenuItem salir;
     
+    public Menu(){
+        // Se crean los menus
+        archivo = new JMenu("Archivo");
+        
+        // Se crean los item
+        salir = new JMenuItem("Salir", KeyEvent.VK_S);
+        
+        // Se introducen los item en los menus si así se desea
+        archivo.add(salir);
+        
+        // Se introducen los menus/items en la vista
+        this.add(archivo);
+        
+    }
     
 }
