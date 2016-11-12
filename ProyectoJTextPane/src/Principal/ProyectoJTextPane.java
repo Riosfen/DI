@@ -25,6 +25,7 @@ public class ProyectoJTextPane {
         MenuBarra m = new MenuBarra();
         Menu t = new Menu();
         JFrame ventana = new JFrame("Editor de texto");
+       
         
         ventana.add(v);
         ventana.add(m);
