@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import java.awt.event.ActionListener;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
 
 /**
@@ -13,9 +16,25 @@ import javax.swing.JTextPane;
  */
 public class Vista extends JTextPane {
     
+    private Icon aux_icon;
+    
     public Vista(){
     
+        // TODO no se hacer que el FTextPane haga algo cuando pulse un boton
         
+    }
+    
+    public void insertIcon(){
+    
+        
+        
+    }
+    
+    public Icon addIcon(ImageIcon icon){
+    
+        
+        
+        return aux_icon;
         
     }
     

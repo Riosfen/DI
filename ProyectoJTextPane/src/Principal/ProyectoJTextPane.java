@@ -8,6 +8,7 @@ package Principal;
 import Vistas.Menu;
 import Vistas.MenuBarra;
 import Vistas.Vista;
+import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
 /**
@@ -28,7 +29,7 @@ public class ProyectoJTextPane {
        
         
         ventana.add(v);
-        ventana.add(m);
+        ventana.add(m, BorderLayout.NORTH);
         ventana.setJMenuBar(t);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setSize(600, 400);

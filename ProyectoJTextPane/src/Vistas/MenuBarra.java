@@ -18,4 +18,18 @@ public class MenuBarra extends JToolBar{
     private JButton btn_salir;
     private ImageIcon img_salir;
     
+    public MenuBarra(){
+        // nombre cuando no esta aderido a la ventana
+        setName("Herramientas");
+        // hace que no se pueda separar de la ventana
+        setFloatable(false);
+        // no aparece el icono para mover la barra de herramientas pero si se puede mover
+        // setBorderPainted(false);
+        
+        btn_salir = new JButton(img_salir);
+        
+        add(btn_salir);
+        
+    }
+    
 }
