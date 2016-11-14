@@ -5,7 +5,6 @@
  */
 package Vistas;
 
-import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
