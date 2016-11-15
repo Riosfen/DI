@@ -42,6 +42,9 @@ public class Controlador implements ActionListener {
             case "editar":
                 v.setEditar();
             break;
+            case "numero":
+                v.setTamanio();
+            break;
         }
         
     }

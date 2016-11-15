@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
@@ -29,6 +29,7 @@ public class Vista extends javax.swing.JPanel {
          * Esto es para que abra correctamente un .html
          * y para que no se pueda editar el contenido
          */
+        jComboNumeros.isEditable();
         jTextPane.setContentType("text/html");
         jTextPane.setEditable(false);
         
@@ -55,7 +56,7 @@ public class Vista extends javax.swing.JPanel {
         btn_negrita = new javax.swing.JButton();
         btn_cursiva = new javax.swing.JButton();
         btn_subrayar = new javax.swing.JButton();
-        jComboNumeros = new javax.swing.JComboBox<>();
+        jComboNumeros = new javax.swing.JComboBox(numeros);
         btn_editar = new javax.swing.JButton();
         contenedorJTextPane2 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
@@ -87,7 +88,7 @@ public class Vista extends javax.swing.JPanel {
 
         jTabbedPane2.setLayout(new java.awt.BorderLayout());
 
-        herramientas.setLayout(new java.awt.GridLayout());
+        herramientas.setLayout(new java.awt.GridLayout(1, 0));
 
         btn_negrita.setText("Negrita");
         herramientas.add(btn_negrita);
@@ -97,8 +98,6 @@ public class Vista extends javax.swing.JPanel {
 
         btn_subrayar.setText("Subrayado");
         herramientas.add(btn_subrayar);
-
-        jComboNumeros.setModel(new DefaultComboBoxModel<String>(new String[] { "8", "10", "12", "14", "18", "20", "24", "32", "48", "56", "69" }));
         herramientas.add(jComboNumeros);
 
         btn_editar.setText("Editar");
@@ -124,7 +123,6 @@ public class Vista extends javax.swing.JPanel {
         return textBuscador;
         
     }
-    
     public void cargarPaginaWeb(String str){
     
         /**
@@ -146,12 +144,14 @@ public class Vista extends javax.swing.JPanel {
         btn_cursiva.addActionListener(e);
         btn_subrayar.addActionListener(e);
         btn_editar.addActionListener(e);
+        jComboNumeros.addActionListener(e);
         
         btnBuscar.setActionCommand("buscar");
         btn_negrita.setActionCommand("negrita");
         btn_cursiva.setActionCommand("cursiva");
         btn_subrayar.setActionCommand("subrayar");
         btn_editar.setActionCommand("editar");
+        jComboNumeros.setActionCommand("numero");
         
     }
     
@@ -182,11 +182,20 @@ public class Vista extends javax.swing.JPanel {
     public void setEditar(){
     
         SimpleAttributeSet simp = new SimpleAttributeSet();
-        StyleConstants.setFontSize(simp, Integer.parseInt(jComboNumeros.toString()));
         jTextPane2.setCharacterAttributes(simp, true);
         
     }
     
+    public void setTamanio(){
+        
+        int size = (Integer)jComboNumeros.getSelectedItem();
+        
+        SimpleAttributeSet simp = new SimpleAttributeSet();
+        StyleConstants.setFontSize(simp, size);
+        jTextPane2.setCharacterAttributes(simp, true);
+        
+    }
+    Integer[] numeros = {8, 10, 12, 14, 18, 20, 24, 32, 48, 56, 69};
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btn_cursiva;
