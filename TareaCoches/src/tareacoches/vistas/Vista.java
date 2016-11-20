@@ -42,7 +42,7 @@ public class Vista extends javax.swing.JPanel {
         jLabel_fabricacion = new javax.swing.JLabel();
         jFormattedTextField_fabricacion = new javax.swing.JFormattedTextField();
         jLabel_tipo = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jLabel_pintura = new javax.swing.JLabel();
         jCheckBox_metalizado = new javax.swing.JCheckBox();
         jButton_aceptar = new javax.swing.JButton();
@@ -64,6 +64,7 @@ public class Vista extends javax.swing.JPanel {
         add(jTextField_matricula);
 
         buttonGroup_asegurar.add(jRadioButton_todoRiesgo);
+        jRadioButton_todoRiesgo.setMnemonic('t');
         jRadioButton_todoRiesgo.setText("A todo riesgo");
         add(jRadioButton_todoRiesgo);
 
