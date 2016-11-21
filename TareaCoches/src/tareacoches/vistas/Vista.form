@@ -32,6 +32,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel_modelo">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Modelo"/>
       </Properties>
     </Component>
@@ -39,6 +40,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_color">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Color"/>
       </Properties>
     </Component>
@@ -46,6 +48,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_matrucula">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Matr&#xed;cula"/>
       </Properties>
     </Component>
@@ -71,6 +74,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_fabricacion">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="A&#xf1;o de fabricaci&#xf3;n"/>
       </Properties>
     </Component>
@@ -83,6 +87,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_tipo">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Tipo de coche"/>
       </Properties>
     </Component>
@@ -98,6 +103,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_pintura">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Tipo de pintura"/>
       </Properties>
     </Component>

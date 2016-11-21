@@ -14,6 +14,24 @@ import java.util.TreeMap;
  */
 public class Coches {
     
-    private Map<Integer, Coche> vCoches = new TreeMap<Integer, Coche>();
+    private Map<String, Coche> vCoches;
+    
+    public Coches() {
+        
+        vCoches = new TreeMap<String, Coche>();
+        
+    }
+    
+    public boolean addCoche(Coche c){
+    
+        boolean resultado = vCoches.containsKey(c.getMatricula());
+        
+        if (!resultado){
+            vCoches.put(c.getMatricula(), c);
+        }
+        
+        return resultado;
+        
+    }
     
 }

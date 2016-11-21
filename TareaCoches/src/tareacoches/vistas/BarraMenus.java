@@ -5,6 +5,7 @@
  */
 package tareacoches.vistas;
 
+import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -44,6 +45,20 @@ public class BarraMenus extends JMenuBar {
         
         this.add(operaciones);
         this.add(sistema);
+        
+    }
+    
+    public void addControlador (ActionListener e){
+        
+        buscar.addActionListener(e);
+        consultar.addActionListener(e);
+        anniadir.addActionListener(e);
+        salir.addActionListener(e);
+        
+        buscar.setActionCommand("buscar");
+        consultar.setActionCommand("consultar");
+        anniadir.setActionCommand("anniadir");
+        salir.setActionCommand("salir");
         
     }
     

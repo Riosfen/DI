@@ -7,6 +7,9 @@ package tareacoches;
 
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
+import tareacoches.controlador.Controlador;
+import tareacoches.modelo.Coche;
+import tareacoches.modelo.Coches;
 import tareacoches.vistas.BarraHerramientas;
 import tareacoches.vistas.BarraMenus;
 import tareacoches.vistas.Vista;
@@ -22,12 +25,19 @@ public class TareaCoches {
      */
     public static void main(String[] args) {
         
+        Coche coche;
+        Coches vcoches = new Coches();
         Vista v = new Vista();
         BarraMenus b = new BarraMenus();
         BarraHerramientas h = new BarraHerramientas();
         JFrame ventana = new JFrame("Gestión de Coches");
+        Controlador c = new Controlador(v, b, h, ventana);
         
-        ventana.add(h, BorderLayout.SOUTH);
+        v.addControlador(c);
+        h.addControlador(c);
+        b.addControlador(c);
+        
+        ventana.add(h, BorderLayout.NORTH);
         ventana.setJMenuBar(b);
         ventana.add(v);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
