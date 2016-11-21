@@ -10,7 +10,6 @@ import java.util.Enumeration;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
-import javax.swing.JFormattedTextField;
 import javax.swing.JRadioButton;
 
 /**
@@ -44,9 +43,9 @@ public class Vista extends javax.swing.JPanel {
     public String getMatricula(){return jTextField_matricula.toString();}
     public String getColor(){return jTextField_color.toString();}
     public String getModelo(){return jTextField_modelo.toString();}
-    public JFormattedTextField getFabricacion(){return jFormattedTextField_fabricacion;}
-    public String getTipos(){return jComboBox1.getSelectedItem().toString();}
-    public String getSeguro(){return buttonGroup_asegurar.toString();}
+    public int getFabricacion(){return Integer.valueOf(jFormattedTextField_fabricacion.getText());}
+    public Tipos getTipos(){return Tipos.valueOf(jComboBox1.getSelectedItem().toString());}
+    public JRadioButton getSeguro(){return (JRadioButton) buttonGroup_asegurar.getSelection();}
     public JCheckBox getPintura(){return jCheckBox_metalizado;}
     
     public void addControlador(ActionListener e){

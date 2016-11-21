@@ -5,6 +5,7 @@
  */
 package tareacoches.modelo;
 
+import javax.swing.JRadioButton;
 import tareacoches.vistas.Vista;
 
 /**
@@ -16,12 +17,12 @@ public class Coche {
     private String modelo;
     private String color;
     private String matricula;
-    private String seguro;
-    private String annioMatriculacion;
-    private String tipoCoche;
+    private JRadioButton seguro;
+    private int annioMatriculacion;
+    private Vista.Tipos tipoCoche;
     private boolean metalizado;
     
-    public Coche(String modelo, String color, String matricula, String seguro, String annioMatriculacion, String tipoCoche, boolean metalizado){
+    public Coche(String modelo, String color, String matricula, JRadioButton seguro, int annioMatriculacion, Vista.Tipos tipoCoche, boolean metalizado){
     
         this.modelo = modelo;
         this.color = color;

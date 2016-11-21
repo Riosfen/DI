@@ -5,14 +5,19 @@
  */
 package tareacoches.controlador;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import tareacoches.modelo.Coche;
 import tareacoches.modelo.Coches;
 import tareacoches.vistas.BarraHerramientas;
 import tareacoches.vistas.BarraMenus;
+import tareacoches.vistas.ModeloTabla;
 import tareacoches.vistas.Vista;
 
 /**
@@ -38,17 +43,28 @@ public class Controlador implements ActionListener {
     
     }
     
+    private ModeloTabla modeloTabla;
+    private JTable tabla;
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         
         switch(e.getActionCommand()){
             case "buscar":
+                modeloTabla = new ModeloTabla();
+                tabla = new JTable(modeloTabla);
+                String buscar = JOptionPane.showInputDialog(null, "Insertar matricula a buscar");
                 
+                mostrarTabla(tabla);
                 break;
             case "consultar":
+                modeloTabla = new ModeloTabla();
+                tabla = new JTable(modeloTabla);
+                
+                mostrarTabla(tabla);
                 break;
             case "anniadir":
-                    anniadirCoche();
+                anniadirCoche();
                 break;
             case "salir":
                 System.exit(0);
@@ -65,8 +81,8 @@ public class Controlador implements ActionListener {
         try{
             c = new Coche(v.getModelo(), v.getColor(), 
             v.getMatricula(), v.getSeguro(), 
-            v.getFabricacion().toString(), 
-            v.getTipos(), v.getPintura().isSelected());
+            v.getFabricacion(), v.getTipos(), 
+            v.getPintura().isSelected());
 
             if (v.getMatricula().equals("")){
             
@@ -86,6 +102,17 @@ public class Controlador implements ActionListener {
             i.printStackTrace();
                 JOptionPane.showMessageDialog(f, "Error inesperado, contacta con el administrador");
         }
+    
+    }
+
+    private void mostrarTabla(JTable tabla) {
+    
+        JScrollPane contenedorTable = new JScrollPane(tabla);
+        JDialog ventanaTabla = new JDialog(f, "Tabla Consulta");
+        ventanaTabla.setModal(true);
+        ventanaTabla.setVisible(true);
+        ventanaTabla.add(contenedorTable, BorderLayout.CENTER);
+        ventanaTabla.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
     
     }
     

@@ -23,11 +23,11 @@ public class Coches {
     
     public boolean addCoche(Coche c) {
     
-        boolean resultado = true;
-        Coche coche = vCoches.put(c.getMatricula(), c);
+        boolean resultado = false;
+        resultado = vCoches.containsKey(c.getMatricula());
         
-        if (coche == null){
-            resultado = false;
+        if (resultado == false){
+            vCoches.put(c.getMatricula(), c);
         }
         
         return resultado;
