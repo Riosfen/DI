@@ -5,8 +5,7 @@
  */
 package tareacoches.modelo;
 
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.HashMap;
 
 /**
  *
@@ -14,23 +13,30 @@ import java.util.TreeMap;
  */
 public class Coches {
     
-    private Map<String, Coche> vCoches;
+    private HashMap<String, Coche> vCoches;
     
     public Coches() {
         
-        vCoches = new TreeMap<String, Coche>();
+        vCoches = new HashMap<String, Coche>();
         
     }
     
-    public boolean addCoche(Coche c){
+    public boolean addCoche(Coche c) {
     
-        boolean resultado = vCoches.containsKey(c.getMatricula());
+        boolean resultado = true;
+        Coche coche = vCoches.put(c.getMatricula(), c);
         
-        if (!resultado){
-            vCoches.put(c.getMatricula(), c);
+        if (coche == null){
+            resultado = false;
         }
         
         return resultado;
+        
+    }
+    
+    public int numCoche(){
+    
+        return vCoches.size();
         
     }
     

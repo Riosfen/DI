@@ -5,11 +5,10 @@
  */
 package tareacoches.controlador;
 
-import java.awt.Dialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import tareacoches.modelo.Coche;
 import tareacoches.modelo.Coches;
 import tareacoches.vistas.BarraHerramientas;
@@ -29,8 +28,9 @@ public class Controlador implements ActionListener {
     private Coche c;
     private Coches vc;
     
-    public Controlador(Vista v, BarraMenus b, BarraHerramientas h, JFrame f){
+    public Controlador(Vista v, BarraMenus b, BarraHerramientas h, JFrame f, Coches vc){
     
+        this.vc = vc;
         this.f = f;
         this.v = v;
         this.b = b;
@@ -48,28 +48,7 @@ public class Controlador implements ActionListener {
             case "consultar":
                 break;
             case "anniadir":
-                try{
-                    c = new Coche(v.getModelo().getText(), v.getColor().getText(), 
-                            v.getMatricula().getText(), v.getSeguro().getText(), 
-                            Integer.parseInt(v.getFabricacion().getText()), 
-                            v.getTipos(), v.getPintura().isSelected());
-
-                    if (vc.addCoche(c)){
-                        JDialog error = new JDialog();
-                        error.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                        error.setVisible(true);
-                    //TODO hacer que aparezca un mensaje de que NO se ha insertado el coche adecuada mente
-                    }else{
-                    //TODO hacer que aparezca un mensaje de que se ha insertado el coche adecuada mente
-                        JDialog correcto = new JDialog();
-                        correcto.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                        correcto.setVisible(true);
-                    }
-                    
-                } catch (Exception i){
-                    //TODO hacer que aparezca mensaje de error si pasa algo raro
-                }
-                    
+                    anniadirCoche();
                 break;
             case "salir":
                 System.exit(0);
@@ -79,6 +58,35 @@ public class Controlador implements ActionListener {
                 break;
         }
         
+    }
+
+    private void anniadirCoche() {
+        
+        try{
+            c = new Coche(v.getModelo(), v.getColor(), 
+            v.getMatricula(), v.getSeguro(), 
+            v.getFabricacion().toString(), 
+            v.getTipos(), v.getPintura().isSelected());
+
+            if (v.getMatricula().equals("")){
+            
+                JOptionPane.showMessageDialog(f, "Tienes que rellenar los datos");
+            
+            }else{
+                
+                if (vc.addCoche(c)){
+                    JOptionPane.showMessageDialog(f, "Error, el coche ya existe");
+                }else{
+                    JOptionPane.showMessageDialog(f, "Coche insertado correctamente");
+                }
+                
+            }
+
+        } catch (Exception i){
+            i.printStackTrace();
+                JOptionPane.showMessageDialog(f, "Error inesperado, contacta con el administrador");
+        }
+    
     }
     
 }

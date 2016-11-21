@@ -25,13 +25,12 @@ public class TareaCoches {
      */
     public static void main(String[] args) {
         
-        Coche coche;
-        Coches vcoches = new Coches();
+        Coches vCoches = new Coches();
         Vista v = new Vista();
         BarraMenus b = new BarraMenus();
         BarraHerramientas h = new BarraHerramientas();
         JFrame ventana = new JFrame("Gestión de Coches");
-        Controlador c = new Controlador(v, b, h, ventana);
+        Controlador c = new Controlador(v, b, h, ventana, vCoches);
         
         v.addControlador(c);
         h.addControlador(c);

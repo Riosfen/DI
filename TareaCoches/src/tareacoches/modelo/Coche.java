@@ -17,11 +17,11 @@ public class Coche {
     private String color;
     private String matricula;
     private String seguro;
-    private int annioMatriculacion;
-    private Vista.Tipos tipoCoche;
+    private String annioMatriculacion;
+    private String tipoCoche;
     private boolean metalizado;
     
-    public Coche(String modelo, String color, String matricula, String seguro, int annioMatriculacion, Vista.Tipos tipoCoche, boolean metalizado){
+    public Coche(String modelo, String color, String matricula, String seguro, String annioMatriculacion, String tipoCoche, boolean metalizado){
     
         this.modelo = modelo;
         this.color = color;
@@ -34,9 +34,7 @@ public class Coche {
     }
 
     public String getMatricula() {
-        return matricula;
+        return this.matricula;
     }
-    
-    
     
 }

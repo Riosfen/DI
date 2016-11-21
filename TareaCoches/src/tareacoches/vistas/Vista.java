@@ -12,7 +12,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 
 /**
  *
@@ -21,6 +20,7 @@ import javax.swing.JTextField;
 public class Vista extends javax.swing.JPanel {
 
     public enum Tipos{MINI, UTILITARIO, FAMILIAR, DEPORTIVO};
+    
     /**
      * Creates new form Vista
      */
@@ -41,12 +41,12 @@ public class Vista extends javax.swing.JPanel {
         return null;
     }
     
-    public JTextField getMatricula(){return jTextField_matricula;}
-    public JTextField getColor(){return jTextField_color;}
-    public JTextField getModelo(){return jTextField_modelo;}
+    public String getMatricula(){return jTextField_matricula.toString();}
+    public String getColor(){return jTextField_color.toString();}
+    public String getModelo(){return jTextField_modelo.toString();}
     public JFormattedTextField getFabricacion(){return jFormattedTextField_fabricacion;}
-    public Tipos getTipos(){return (Tipos) jComboBox1.getSelectedItem();}
-    public JRadioButton getSeguro(){return getSelection(buttonGroup_asegurar);}
+    public String getTipos(){return jComboBox1.getSelectedItem().toString();}
+    public String getSeguro(){return buttonGroup_asegurar.toString();}
     public JCheckBox getPintura(){return jCheckBox_metalizado;}
     
     public void addControlador(ActionListener e){
