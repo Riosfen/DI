@@ -24,7 +24,7 @@ public class ModeloTabla extends DefaultTableModel{
     @Override
     public Class<?> getColumnClass(int columnIndex) {
     
-        this.getColumnClass(columnIndex);
+       // this.getColumnClass(columnIndex);
         
         return atributo[columnIndex];
     

@@ -27,6 +27,7 @@ public class TareaCoches {
         
         Coches vCoches = new Coches();
         Vista v = new Vista();
+       // v.cargarCombo(valores de enum);
         BarraMenus b = new BarraMenus();
         BarraHerramientas h = new BarraHerramientas();
         JFrame ventana = new JFrame("Gestión de Coches");

@@ -70,6 +70,9 @@ public class Vista extends javax.swing.JPanel {
         buttonGroup_asegurar.clearSelection();
         
     }
+//    public void cargarCombo(String[] valores){
+//        jComboBox1.setModel(valores);
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.

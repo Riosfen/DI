@@ -10,6 +10,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
+import javax.swing.JSeparator;
 
 /**
  *
@@ -38,7 +39,7 @@ public class BarraMenus extends JMenuBar {
         
         operaciones.add(buscar);
         operaciones.add(consultar);
-        operaciones.add(new JPopupMenu.Separator());
+        operaciones.add(new JSeparator());
         operaciones.add(anniadir);
         
         sistema.add(salir);
