@@ -6,6 +6,7 @@
 package tareacoches.modelo;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  *
@@ -32,6 +33,32 @@ public class Coches {
         
         return resultado;
         
+    }
+    
+    public boolean buscarCoche(String matricula){
+    
+        return vCoches.containsKey(matricula);
+    
+    }
+    
+    public Iterator getIterator(){return vCoches.values().iterator();}
+    
+    public Object[] getCoche(String matricula){
+        
+        Coche coche = vCoches.get(matricula);
+        
+        Object[] datos = {
+            coche.getModelo(),
+            coche.getColor(),
+            coche.getMatricula(),
+            coche.getSeguro(),
+            coche.getAnnioMatriculacion(),
+            coche.getTipoCoche(),
+            coche.isMetalizado()
+        };
+        
+        return datos;
+    
     }
     
     public int numCoche(){

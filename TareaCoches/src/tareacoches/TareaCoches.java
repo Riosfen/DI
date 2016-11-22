@@ -27,11 +27,11 @@ public class TareaCoches {
         
         Coches vCoches = new Coches();
         Vista v = new Vista();
-       // v.cargarCombo(valores de enum);
+        // v.cargarCombo(valores de enum);
         BarraMenus b = new BarraMenus();
         BarraHerramientas h = new BarraHerramientas();
         JFrame ventana = new JFrame("Gestión de Coches");
-        Controlador c = new Controlador(v, b, h, ventana, vCoches);
+        Controlador c = new Controlador(v, ventana, vCoches);
         
         v.addControlador(c);
         h.addControlador(c);

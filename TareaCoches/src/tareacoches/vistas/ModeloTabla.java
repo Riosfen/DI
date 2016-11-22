@@ -5,7 +5,6 @@
  */
 package tareacoches.vistas;
 
-import javax.swing.JRadioButton;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ModeloTabla extends DefaultTableModel{
 
-    private Class[] atributo = {String.class,String.class,String.class,String.class,Integer.class,Vista.Tipos.class,Boolean.class};
+    private Class[] atributo = {String.class,String.class,String.class,String.class,String.class,String.class,Boolean.class};
     
     @Override
     public boolean isCellEditable(int row, int column) {
@@ -23,8 +22,6 @@ public class ModeloTabla extends DefaultTableModel{
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-    
-       // this.getColumnClass(columnIndex);
         
         return atributo[columnIndex];
     

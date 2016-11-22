@@ -8,6 +8,7 @@ package tareacoches.controlador;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -15,9 +16,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import tareacoches.modelo.Coche;
 import tareacoches.modelo.Coches;
-import tareacoches.vistas.BarraHerramientas;
-import tareacoches.vistas.BarraMenus;
 import tareacoches.vistas.ModeloTabla;
+import tareacoches.vistas.Tabla;
 import tareacoches.vistas.Vista;
 
 /**
@@ -28,40 +28,61 @@ public class Controlador implements ActionListener {
 
     private JFrame f;
     private Vista v;
-    private BarraHerramientas h;
-    private BarraMenus b;
     private Coche c;
     private Coches vc;
     
-    public Controlador(Vista v, BarraMenus b, BarraHerramientas h, JFrame f, Coches vc){
+    public Controlador(Vista v, JFrame f, Coches vc){
     
         this.vc = vc;
         this.f = f;
         this.v = v;
-        this.b = b;
-        this.h = h;
     
     }
-    
-    private ModeloTabla modeloTabla;
-    private JTable tabla;
     
     @Override
     public void actionPerformed(ActionEvent e) {
         
         switch(e.getActionCommand()){
             case "buscar":
-                modeloTabla = new ModeloTabla();
-                tabla = new JTable(modeloTabla);
                 String buscar = JOptionPane.showInputDialog(null, "Insertar matricula a buscar");
                 
-                mostrarTabla(tabla);
+                if(vc.buscarCoche(buscar)){
+                    JOptionPane.showMessageDialog(f, "El coche está en la lista");
+                }else{}
+                    JOptionPane.showMessageDialog(f, "El coche no se encuentra en la lista");
                 break;
             case "consultar":
-                modeloTabla = new ModeloTabla();
-                tabla = new JTable(modeloTabla);
+                JDialog vistaTabla = new JDialog(f, "Datos de coches encontrados");
                 
-                mostrarTabla(tabla);
+                Tabla tabla = new Tabla();
+                
+                String[] cabecera = {
+                    "Modelo",
+                    "Color",
+                    "Matrícula",
+                    "Tipo seguro",
+                    "Año de fabricación",
+                    "Tipo de vehículo",
+                    "Tipo de pintura"
+                };
+                Object[] coche;
+                
+                tabla.anniadirCabecera(cabecera);
+                
+                Iterator iterator = vc.getIterator();
+                
+                while (iterator.hasNext()) {
+                    Coche c = (Coche) iterator.next();
+                    
+                    tabla.anniadirFila(vc.getCoche(c.getMatricula()));
+                }
+                
+                vistaTabla.setModal(true);
+                vistaTabla.setContentPane(tabla);
+                vistaTabla.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+                vistaTabla.pack();
+                vistaTabla.setVisible(true);
+                
                 break;
             case "anniadir":
                 anniadirCoche();
@@ -82,7 +103,7 @@ public class Controlador implements ActionListener {
             c = new Coche(v.getModelo(), v.getColor(), 
             v.getMatricula(), v.getSeguro(), 
             v.getFabricacion(), v.getTipos(), 
-            v.getPintura().isSelected());
+            v.getPintura());
 
             if (v.getMatricula().equals("")){
             

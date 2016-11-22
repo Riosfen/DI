@@ -6,19 +6,16 @@
 package tareacoches.vistas;
 
 import java.awt.event.ActionListener;
-import java.util.Enumeration;
-import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JCheckBox;
-import javax.swing.JRadioButton;
+import tareacoches.modelo.TiposCoche;
 
 /**
  *
  * @author samo_
  */
 public class Vista extends javax.swing.JPanel {
-
-    public enum Tipos{MINI, UTILITARIO, FAMILIAR, DEPORTIVO};
+    
+    private static final String SIN_DATOS = "Sin determinar";
     
     /**
      * Creates new form Vista
@@ -27,26 +24,58 @@ public class Vista extends javax.swing.JPanel {
         initComponents();
     }
     
-    public JRadioButton getSelection(ButtonGroup group) {
-        for (Enumeration e=group.getElements(); e.hasMoreElements(); )
-        {
-            JRadioButton b = (JRadioButton)e.nextElement();
-            if (b.getModel() == group.getSelection())
-            {
-                return b;
-            }
+    public String getMatricula(){return jTextField_matricula.getText();}
+    public String getColor(){
+        
+        String resultado = jTextField_color.getText();
+        
+        if (resultado.equals("")){
+            resultado = "Sin determinar";
         }
-
-        return null;
+        
+        return resultado ;
     }
+    public String getModelo(){
     
-    public String getMatricula(){return jTextField_matricula.toString();}
-    public String getColor(){return jTextField_color.toString();}
-    public String getModelo(){return jTextField_modelo.toString();}
-    public int getFabricacion(){return Integer.valueOf(jFormattedTextField_fabricacion.getText());}
-    public Tipos getTipos(){return Tipos.valueOf(jComboBox1.getSelectedItem().toString());}
-    public JRadioButton getSeguro(){return (JRadioButton) buttonGroup_asegurar.getSelection();}
-    public JCheckBox getPintura(){return jCheckBox_metalizado;}
+        String resultado = jTextField_modelo.getText();
+        
+        if (resultado.equals("")){
+            resultado = SIN_DATOS;
+        }
+        
+        return resultado;
+    }
+    public String getFabricacion(){
+        
+        String resultado = jFormattedTextField_fabricacion.getText();
+        
+        if (resultado.equals("    ")){
+            resultado = SIN_DATOS;
+        }
+        
+        return resultado;
+    }
+    public String getTipos(){return jComboBox1.getSelectedItem().toString();}
+    public String getSeguro(){
+        
+        String resultado = SIN_DATOS;
+        
+        if (jRadioButton_terceros.isSelected()){
+            resultado = jRadioButton_terceros.getText();
+        }
+        if (jRadioButton_todoRiesgo.isSelected()){
+                resultado = jRadioButton_todoRiesgo.getText();
+        }
+        
+        return resultado;
+    }
+    public Boolean getPintura(){return jCheckBox_metalizado.isSelected();}
+    
+    public void anniadirCombo(){
+    
+        jComboBox1.setModel(new DefaultComboBoxModel(TiposCoche.values()));
+        
+    }
     
     public void addControlador(ActionListener e){
     
@@ -144,7 +173,7 @@ public class Vista extends javax.swing.JPanel {
         jLabel_tipo.setText("Tipo de coche");
         add(jLabel_tipo);
 
-        jComboBox1.setModel(new DefaultComboBoxModel(Tipos.values()));
+        anniadirCombo();
         add(jComboBox1);
 
         jLabel_pintura.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -181,4 +210,5 @@ public class Vista extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField_matricula;
     private javax.swing.JTextField jTextField_modelo;
     // End of variables declaration//GEN-END:variables
+
 }
