@@ -8,7 +8,6 @@ package tareacoches;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import tareacoches.controlador.Controlador;
-import tareacoches.modelo.Coche;
 import tareacoches.modelo.Coches;
 import tareacoches.vistas.BarraHerramientas;
 import tareacoches.vistas.BarraMenus;
@@ -27,7 +26,6 @@ public class TareaCoches {
         
         Coches vCoches = new Coches();
         Vista v = new Vista();
-        // v.cargarCombo(valores de enum);
         BarraMenus b = new BarraMenus();
         BarraHerramientas h = new BarraHerramientas();
         JFrame ventana = new JFrame("Gestión de Coches");
