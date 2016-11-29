@@ -6,10 +6,13 @@
 package tareacoches.vistas;
 
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -29,12 +32,16 @@ public class BarraMenus extends JMenuBar {
     
         buscar = new JMenuItem("Buscar Coche");
         buscar.setMnemonic('b');
+        buscar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B,InputEvent.CTRL_MASK));
         consultar = new JMenuItem("Consultar Coche");
         consultar.setMnemonic('c');
+        consultar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
         anniadir = new JMenuItem("Añadir Coche");
         anniadir.setMnemonic('a');
+        anniadir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));
         salir = new JMenuItem("Salir");
         salir.setMnemonic('s');
+        salir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
         
         operaciones.add(buscar);
         operaciones.add(consultar);
