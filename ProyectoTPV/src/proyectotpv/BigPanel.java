@@ -32,17 +32,20 @@ public class BigPanel extends JPanel{
     private Font fuente;
     
     public BigPanel(JFrame ventana, Color color){
+        this.color = color;
         this.ventana = ventana;
         barraSuperior();
         
     }
     public BigPanel(JFrame ventana, String tittle, Color color){
+        this.color = color;
         this.ventana = ventana;
         this.tittle = tittle;
         barraSuperior();
         
     }
     public BigPanel(JFrame ventana, Image icono, String tittle, Color color){
+        this.color = color;
         this.ventana = ventana;
         this.icono = icono;
         this.tittle = tittle;
@@ -50,6 +53,7 @@ public class BigPanel extends JPanel{
         
     }
     public BigPanel(JFrame ventana, String tittle, Image imageAction, Color color){
+        this.color = color;
         this.ventana = ventana;
         this.tittle = tittle;
         this.imageAction = imageAction;
@@ -57,6 +61,7 @@ public class BigPanel extends JPanel{
         
     }
     public BigPanel(JFrame ventana,Image icono, String tittle, Image imageAction, Color color){
+        this.color = color;
         this.ventana = ventana;
         this.icono = icono;
         this.tittle = tittle;

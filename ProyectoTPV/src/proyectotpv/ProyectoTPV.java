@@ -5,6 +5,7 @@
  */
 package proyectotpv;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
@@ -21,13 +22,16 @@ public class ProyectoTPV {
     public static void main(String[] args) {
         
         //Toolkit t = Toolkit.getDefaultToolkit();
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        
+        //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         JFrame ventana = new JFrame();
+        BigPanel panel = new BigPanel(ventana, Color.BLUE);
+        
+        panel.setOcultarBarraTitulo(ventana);
         
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
         ventana.setVisible(true);
+        ventana.setResizable(false);
         
     }
     
