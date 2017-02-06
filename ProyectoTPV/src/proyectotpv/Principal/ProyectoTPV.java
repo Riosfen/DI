@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectotpv;
+package proyectotpv.Principal;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import proyectotpv.Modelo.BigPanel;
 import javax.swing.JFrame;
+import proyectotpv.Controlador.ControladorPrincipal;
+import proyectotpv.Vista.VistaPrincipal;
 
 /**
  *
@@ -24,14 +24,18 @@ public class ProyectoTPV {
         //Toolkit t = Toolkit.getDefaultToolkit();
         //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         JFrame ventana = new JFrame();
-        BigPanel panel = new BigPanel(ventana, Color.BLUE);
+        BigPanel barra = new BigPanel(ventana, "Programa de victor", null);
+        VistaPrincipal vp = new VistaPrincipal(barra);
+        ControladorPrincipal c = new ControladorPrincipal(vp);
         
-        panel.setOcultarBarraTitulo(ventana);
         
+        ventana.setContentPane(vp);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
         ventana.setVisible(true);
         ventana.setResizable(false);
+        
+        barra.setFontSize(ventana.getSize().height*10/100);
         
     }
     
