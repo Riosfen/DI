@@ -30,14 +30,11 @@ public class BigPanel extends JPanel implements Serializable{
     private Color color;
     private final JFrame ventana;
     private String tittle;
-    private JLabel contenedorIcono;
+    private JLabel contenedorIcono, titulo;
     private JButton btnSalir;
-    private ImageIcon imagen;
-    private Font fuente = getFont();
-    private ImageIcon icono;
-    private JLabel titulo;
     private Image tratar;
-    private ActionListener action;
+    private ImageIcon icono, imagen;
+    private Font fuente = getFont();
     
     //
     // Inicio lista de constructores 
@@ -74,8 +71,12 @@ public class BigPanel extends JPanel implements Serializable{
     // Inicio Getters y Setters
     //
     
+    public void setTittleColor(Color color){
+        
+    }
     public void setTittle(String tittle) {
         this.tittle = tittle;
+        titulo.setText(tittle);
     }
     public void setIcono(ImageIcon icono) {
         this.icono = icono;
@@ -96,13 +97,30 @@ public class BigPanel extends JPanel implements Serializable{
         this.setBackground(color);
     }
     
-    public ActionListener getActionListener(){
-        return action;
+    public JLabel getTitulo(){
+        return titulo;
     }
+    public String getTittle(){
+        return tittle;
+    }
+    public ImageIcon getLogo(){
+        return imagen;
+    }
+    public Color getColor(){
+        return color;
+    }
+    public 
     
     //
     // Fin Getters y Setters
     //
+    
+    //
+    // Controlador
+    public void controlador(ActionListener a, String ActionCommand){
+        btnSalir.addActionListener(a);
+        btnSalir.setActionCommand(ActionCommand);
+    }
     
     private ImageIcon redimensionarImagenAncho(ImageIcon icono, int size){
         try {

@@ -26,14 +26,11 @@ public class VistaPrincipal extends javax.swing.JPanel {
         initComponents();
         this.barra = barra;
         this.add(barra, BorderLayout.NORTH);
-        btnSalir = barra.getBotonSalir();
         
     }
     
-    public void controlador(ActionListener e){
-        .addActionListener(e);
-        
-        .setActionCommand("salir");
+    public BigPanel getBigPanel(){
+        return barra;
     }
 
     /**

@@ -5,6 +5,7 @@
  */
 package proyectotpv.Principal;
 
+import java.awt.Color;
 import proyectotpv.Modelo.BigPanel;
 import javax.swing.JFrame;
 import proyectotpv.Controlador.ControladorPrincipal;
@@ -31,6 +32,7 @@ public class ProyectoTPV {
         
         ventana.setContentPane(vp);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //ventana.setSize(500,500);
         ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
         ventana.setVisible(true);
         ventana.setResizable(false);

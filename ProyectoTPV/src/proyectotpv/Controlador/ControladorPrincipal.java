@@ -15,18 +15,18 @@ import proyectotpv.Vista.VistaPrincipal;
  */
 public class ControladorPrincipal implements ActionListener{
     
-    private VistaPrincipal vista;
+    private final VistaPrincipal vista;
     
     public ControladorPrincipal(VistaPrincipal vista){
         this.vista = vista;
-    
+        this.vista.getBigPanel().controlador(this, "cerrar");
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         
         switch(e.getActionCommand()){
-            case "salir":
+            case "cerrar":
                 System.exit(0);
                 break;
         }
