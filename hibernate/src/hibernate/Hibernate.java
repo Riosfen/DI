@@ -5,6 +5,14 @@
  */
 package hibernate;
 
+import hibernate.controlador.ControladorCliente;
+import hibernate.controlador.ControladorDirector;
+import hibernate.controlador.ControladorPelicula;
+import hibernate.controlador.ControladorPrincipal;
+import hibernate.vista.VistaCliente;
+import hibernate.vista.VistaDirector;
+import hibernate.vista.VistaPelicula;
+import hibernate.vista.VistaPrincipal;
 import javax.swing.JFrame;
 
 /**
@@ -20,8 +28,26 @@ public class Hibernate {
         // TODO code application logic here
         
         JFrame ventana = new JFrame("Videoclub");
-        ControladorPrincipal cp = new ControladorPrincipal();
-        VistaPrincipal vp = new VistaPrincipal(cp);
+        
+        VistaPrincipal vPrincipal = new VistaPrincipal();
+        VistaCliente vCliente = new VistaCliente();
+        VistaDirector vDirector = new VistaDirector();
+        VistaPelicula vPelicula = new VistaPelicula();
+        
+        ControladorPrincipal cPrincipal = new ControladorPrincipal(ventana,vCliente,vDirector,vPelicula);
+        ControladorCliente cCliente = new ControladorCliente(ventana,vPrincipal);
+        ControladorDirector cDirector = new ControladorDirector(ventana,vPrincipal);
+        ControladorPelicula cPelicula = new ControladorPelicula(ventana,vPrincipal);
+        
+        vPrincipal.addControlador(cPrincipal);
+        vCliente.addControlador(cCliente);
+        vDirector.addControlador(cDirector);
+        vPelicula.addControlador(cPelicula);
+        
+        ventana.add(vPrincipal);
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.pack();
+        ventana.setVisible(true);
         
         
     }

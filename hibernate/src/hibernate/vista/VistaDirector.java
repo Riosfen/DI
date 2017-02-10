@@ -3,19 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hibernate;
+package hibernate.vista;
+
+import hibernate.controlador.ControladorDirector;
 
 /**
  *
  * @author alumno2damdiurno
  */
-public class VistaCliente extends javax.swing.JPanel {
+public class VistaDirector extends javax.swing.JPanel {
 
     /**
      * Creates new form VistaCliente
      */
-    public VistaCliente() {
+    public VistaDirector() {
         initComponents();
+    }
+    
+    public void addControlador(ControladorDirector e) {
+        
+        btn_agregar.addActionListener(e);
+        btn_buscar.addActionListener(e);
+        btn_eliminar.addActionListener(e);
+        btn_modificar.addActionListener(e);
+        btn_atras.addActionListener(e);
+        
+        btn_agregar.setActionCommand("agregar");
+        btn_buscar.setActionCommand("buscar");
+        btn_eliminar.setActionCommand("eliminar");
+        btn_modificar.setActionCommand("modificar");
+        btn_atras.setActionCommand("atras");
+        
     }
 
     /**
@@ -32,9 +50,9 @@ public class VistaCliente extends javax.swing.JPanel {
         btn_modificar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
         btn_buscar = new javax.swing.JButton();
-        btn_salir = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        btn_atras = new javax.swing.JButton();
+        tabla_scroll = new javax.swing.JScrollPane();
+        tabla_director = new javax.swing.JTable();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -69,15 +87,15 @@ public class VistaCliente extends javax.swing.JPanel {
         });
         BarraHerramineta.add(btn_buscar);
 
-        btn_salir.setText("Atras");
-        btn_salir.setFocusable(false);
-        btn_salir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_salir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        BarraHerramineta.add(btn_salir);
+        btn_atras.setText("Atras");
+        btn_atras.setFocusable(false);
+        btn_atras.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_atras.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BarraHerramineta.add(btn_atras);
 
         add(BarraHerramineta, java.awt.BorderLayout.PAGE_START);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_director.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -88,9 +106,9 @@ public class VistaCliente extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tabla_scroll.setViewportView(tabla_director);
 
-        add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        add(tabla_scroll, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
@@ -101,11 +119,12 @@ public class VistaCliente extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToolBar BarraHerramineta;
     private javax.swing.JButton btn_agregar;
+    private javax.swing.JButton btn_atras;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_modificar;
-    private javax.swing.JButton btn_salir;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabla_director;
+    private javax.swing.JScrollPane tabla_scroll;
     // End of variables declaration//GEN-END:variables
+
 }

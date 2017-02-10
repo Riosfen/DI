@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hibernate;
+package hibernate.vista;
+
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -16,6 +18,20 @@ public class VistaPrincipal extends javax.swing.JPanel {
      */
     public VistaPrincipal() {
         initComponents();
+    }
+    
+    public void addControlador(ActionListener e) {
+        
+        btn_client.addActionListener(e);
+        btn_director.addActionListener(e);
+        btn_pelicula.addActionListener(e);
+        btn_salir.addActionListener(e);
+        
+        btn_client.setActionCommand("cliente");
+        btn_director.setActionCommand("director");
+        btn_pelicula.setActionCommand("pelicula");
+        btn_salir.setActionCommand("salir");
+        
     }
 
     /**
@@ -72,4 +88,5 @@ public class VistaPrincipal extends javax.swing.JPanel {
     private javax.swing.JButton btn_pelicula;
     private javax.swing.JButton btn_salir;
     // End of variables declaration//GEN-END:variables
+
 }
