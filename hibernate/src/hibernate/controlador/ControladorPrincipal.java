@@ -40,6 +40,7 @@ public class ControladorPrincipal implements ActionListener{
             case "cliente":
                 //tamanio = ventana.getSize();
                 ventana.setContentPane(vCliente);
+                ventana.setTitle("Cliente");
                 //ventana.setSize(tamanio);
                 ventana.pack();
                 ventana.repaint();
@@ -47,6 +48,7 @@ public class ControladorPrincipal implements ActionListener{
             case "director":
                 //tamanio = ventana.getSize();
                 ventana.setContentPane(vDirector);
+                ventana.setTitle("Director");
                 //ventana.setSize(tamanio);
                 ventana.pack();
                 ventana.repaint();
@@ -54,6 +56,7 @@ public class ControladorPrincipal implements ActionListener{
             case "pelicula":
                 //tamanio = ventana.getSize();
                 ventana.setContentPane(vPelicula);
+                ventana.setTitle("Pelicula");
                 //ventana.setSize(tamanio);
                 ventana.pack();
                 ventana.repaint();

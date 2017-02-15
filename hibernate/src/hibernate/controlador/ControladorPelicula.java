@@ -40,6 +40,7 @@ public class ControladorPelicula implements ActionListener{
             case "atras":
                 //tamanio = ventana.getSize();
                 ventana.setContentPane(vPrincipal);
+                ventana.setTitle("Videoclub");
                 //ventana.setSize(tamanio);
                 ventana.pack();
                 ventana.repaint();
