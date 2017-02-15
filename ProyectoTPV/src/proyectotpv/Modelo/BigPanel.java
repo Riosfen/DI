@@ -72,7 +72,7 @@ public class BigPanel extends JPanel implements Serializable{
     //
     
     public void setTittleColor(Color color){
-        
+        titulo.setForeground(color);
     }
     public void setTittle(String tittle) {
         this.tittle = tittle;
@@ -106,10 +106,12 @@ public class BigPanel extends JPanel implements Serializable{
     public ImageIcon getLogo(){
         return imagen;
     }
-    public Color getColor(){
+    public Color getBackgroundColor(){
         return color;
     }
-    public 
+    public Color getFontColor(){
+        return titulo.getForeground();
+    }
     
     //
     // Fin Getters y Setters
@@ -155,6 +157,7 @@ public class BigPanel extends JPanel implements Serializable{
         
         contenedorIcono = new JLabel(imagen);
         btnSalir = new JButton();
+        btnSalir.setContentAreaFilled(false);
         titulo = new JLabel(tittle);
         
         
