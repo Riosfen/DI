@@ -7,7 +7,7 @@ package repasoexamen1.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import repasoexamen1.vista.VistaPrincipal;
+import repasoexamen1.modelo.Herramientas;
 
 /**
  *
@@ -15,10 +15,10 @@ import repasoexamen1.vista.VistaPrincipal;
  */
 public class Controlador implements ActionListener{
     
-    private VistaPrincipal vista;
+    private Herramientas herramientas;
     
-    public Controlador(VistaPrincipal vista){
-        this.vista = vista;
+    public Controlador(Herramientas herramientas){
+        this.herramientas = herramientas;
         
     }
 
@@ -26,11 +26,13 @@ public class Controlador implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "salir":
+                System.exit(0);
                 break;
             case "aniadir":
-                
+                herramientas.aniadirLibro();
                 break;
             case "buscar":
+                herramientas.buscarLibro();
                 break;
         }
     }

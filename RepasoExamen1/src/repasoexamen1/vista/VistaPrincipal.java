@@ -6,9 +6,7 @@
 package repasoexamen1.vista;
 
 import java.awt.event.ActionListener;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 
 /**
  *
@@ -143,5 +141,25 @@ public class VistaPrincipal extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldTitulo;
     private javax.swing.JToolBar jToolBar;
     // End of variables declaration//GEN-END:variables
+
+    public int getAnio() {
+        return Integer.valueOf(jFormattedTextFieldAnioPublicacion.getText());
+    }
+
+    public String getAutor() {
+        return jTextFieldAutor.getText();
+    }
+
+    public String getEditorial() {
+        return jTextFieldEditorial.getText();
+    }
+
+    public boolean getPrestado() {
+        return jCheckBoxPrestado.isSelected();
+    }
+    
+    public String getTitulo(){
+        return jTextFieldTitulo.getText();
+    }
 
 }

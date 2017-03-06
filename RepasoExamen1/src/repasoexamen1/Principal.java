@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import repasoexamen1.controlador.Controlador;
+import repasoexamen1.modelo.Herramientas;
 import repasoexamen1.modelo.Libro;
 import repasoexamen1.vista.BarraNavegacion;
 import repasoexamen1.vista.VistaPrincipal;
@@ -29,7 +30,8 @@ public class Principal {
         JFrame ventana = new JFrame();
         VistaPrincipal vista = new VistaPrincipal(resultadoLogin());
         BarraNavegacion nab = new BarraNavegacion();
-        Controlador c = new Controlador(vista);
+        Herramientas h = new Herramientas(vista, libros,ventana);
+        Controlador c = new Controlador(h);
         
         vista.addControlador(c);
         nab.addControlador(c);

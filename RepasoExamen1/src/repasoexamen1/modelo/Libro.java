@@ -15,11 +15,13 @@ public class Libro {
     private String autor;
     private int anio;
     private String editorial;
-    private String datosPrestamo;
+    private boolean prestado;
     
     public Libro(String titulo){
         this.titulo = titulo;
     }
+    
+    
 
     public void setAnio(int anio) {
         this.anio = anio;
@@ -27,10 +29,6 @@ public class Libro {
 
     public void setAutor(String autor) {
         this.autor = autor;
-    }
-
-    public void setDatosPrestamo(String datosPrestamo) {
-        this.datosPrestamo = datosPrestamo;
     }
 
     public void setEditorial(String editorial) {
@@ -41,6 +39,12 @@ public class Libro {
         this.titulo = titulo;
     }
 
+    public void setPrestado(boolean prestado) {
+        this.prestado = prestado;
+    }
+    
+    
+
     public int getAnio() {
         return anio;
     }
@@ -49,16 +53,16 @@ public class Libro {
         return autor;
     }
 
-    public String getDatosPrestamo() {
-        return datosPrestamo;
-    }
-
     public String getEditorial() {
         return editorial;
     }
 
     public String getTitulo() {
         return titulo;
+    }
+
+    public boolean isPrestado() {
+        return prestado;
     }
     
 }
